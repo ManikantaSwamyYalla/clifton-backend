@@ -13,7 +13,7 @@ app.use(express.json());
 
 // Your Inbound Verification Key and Account for Plug N Pay
 const INBOUND_HASH_KEY = 'N0Xyx3Dfe4IZHiIQivtWihBgR';
-const GATEWAY_ACCOUNT = 'demosapodi';
+const GATEWAY_ACCOUNT = 'sapodil';
 
 app.post('/api/payment/smartscreen/initiate', (req, res) => {
     try {
