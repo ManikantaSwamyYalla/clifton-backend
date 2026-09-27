@@ -11,9 +11,8 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// Your Inbound Verification Key and Account for Plug N Pay
-const INBOUND_HASH_KEY = 'N0Xyx3Dfe4IZHiIQivtWihBgR';
-const GATEWAY_ACCOUNT = 'sapodil';
+const INBOUND_HASH_KEY = process.env.PLUGNPAY_HASH_KEY;
+const GATEWAY_ACCOUNT = process.env.PLUGNPAY_GATEWAY_ACCOUNT;
 
 app.post('/api/payment/smartscreen/initiate', (req, res) => {
     try {
