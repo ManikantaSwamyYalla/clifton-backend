@@ -22,7 +22,8 @@ app.post('/api/payment/smartscreen/initiate', (req, res) => {
         const transacttime = new Date().toISOString().replace(/[-:T]/g, '').slice(0, 14);
 
         // 2. Generate the SHA-256 hash for security validation
-        const authhash_string = INBOUND_HASH_KEY + transacttime;
+        const formattedAmount = Number(amount).toFixed(2);
+        const authhash_string = INBOUND_HASH_KEY + formattedAmount + (orderId || '') + GATEWAY_ACCOUNT + transacttime;
         const authhash = crypto.createHash('sha256').update(authhash_string).digest('hex');
 
         // 3. Generate the HTML auto-submit form
